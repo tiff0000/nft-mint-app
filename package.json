@@ -9,6 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@web3-onboard/coinbase": "^2.1.2",
+    "@web3-onboard/core": "^2.8.3",
+    "@web3-onboard/fortmatic": "^2.0.13",
+    "@web3-onboard/injected-wallets": "^2.2.2",
+    "@web3-onboard/react": "^2.3.3",
+    "@web3-onboard/walletconnect": "^2.1.2",
+    "ethers": "^5.7.1",
+    "fortmatic": "^2.4.0",
     "next": "12.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
