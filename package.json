@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@alch/alchemy-web3": "^1.4.6",
     "@web3-onboard/coinbase": "^2.1.2",
     "@web3-onboard/core": "^2.8.3",
     "@web3-onboard/fortmatic": "^2.0.13",
@@ -17,6 +18,8 @@
     "@web3-onboard/walletconnect": "^2.1.2",
     "ethers": "^5.7.1",
     "fortmatic": "^2.4.0",
+    "keccak256": "^1.0.6",
+    "merkletreejs": "^0.2.32",
     "next": "12.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"

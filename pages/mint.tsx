@@ -2,15 +2,15 @@ import { useState, useEffect } from 'react'
 import { initOnboard } from '../utils/onboard'
 import { useConnectWallet, useSetChain, useWallets } from '@web3-onboard/react'
 import { config } from '../dapp.config'
-import {
-  getTotalMinted,
-  getMaxSupply,
-  isPausedState,
-  isPublicSaleState,
-  isPreSaleState,
-  presaleMint,
-  publicMint
-} from '../utils/interact'
+// import {
+//   getTotalMinted,
+//   getMaxSupply,
+//   isPausedState,
+//   isPublicSaleState,
+//   isPreSaleState,
+//   presaleMint,
+//   publicMint
+// } from '../utils/interact'
 
 export default function Mint() {
   const [{ wallet, connecting }, connect, disconnect] = useConnectWallet()
@@ -64,23 +64,23 @@ export default function Mint() {
     }
   }, [onboard, connect])
 
-  useEffect(() => {
-    const init = async () => {
-      setMaxSupply(await getMaxSupply())
-      setTotalMinted(await getTotalMinted())
+  // useEffect(() => {
+  //   const init = async () => {
+  //     setMaxSupply(await getMaxSupply())
+  //     setTotalMinted(await getTotalMinted())
 
-      setPaused(await isPausedState())
-      setIsPublicSale(await isPublicSaleState())
-      const isPreSale = await isPreSaleState()
-      setIsPreSale(isPreSale)
+  //     setPaused(await isPausedState())
+  //     setIsPublicSale(await isPublicSaleState())
+  //     const isPreSale = await isPreSaleState()
+  //     setIsPreSale(isPreSale)
 
-      setMaxMintAmount(
-        isPreSale ? config.presaleMaxMintAmount : config.maxMintAmount
-      )
-    }
+  //     setMaxMintAmount(
+  //       isPreSale ? config.presaleMaxMintAmount : config.maxMintAmount
+  //     )
+  //   }
 
-    init()
-  }, [])
+  //   init()
+  // }, [])
 
   const incrementMintAmount = () => {
     if (mintAmount < maxMintAmount) {
@@ -94,30 +94,30 @@ export default function Mint() {
     }
   }
 
-  const presaleMintHandler = async () => {
-    setIsMinting(true)
+  // const presaleMintHandler = async () => {
+  //   setIsMinting(true)
 
-    const { success, status } = await presaleMint(mintAmount)
+  //   const { success, status } = await presaleMint(mintAmount)
 
-    setStatus({
-      success,
-      message: status
-    })
+  //   setStatus({
+  //     success,
+  //     message: status
+  //   })
 
-    setIsMinting(false)
-  }
-  const publicMintHandler = async () => {
-    setIsMinting(true)
+  //   setIsMinting(false)
+  // }
+  // const publicMintHandler = async () => {
+  //   setIsMinting(true)
 
-    const { success, status } = await publicMint(mintAmount)
+  //   const { success, status } = await publicMint(mintAmount)
 
-    setStatus({
-      success,
-      message: status
-    })
+  //   setStatus({
+  //     success,
+  //     message: status
+  //   })
 
-    setIsMinting(false)
-  }
+  //   setIsMinting(false)
+  // }
 
   return (
     <div className="min-h-screen h-full w-full overflow-hidden flex flex-col items-center justify-center bg-brand-background ">
@@ -243,7 +243,7 @@ export default function Mint() {
                         : 'bg-gradient-to-br from-brand-purple to-brand-pink shadow-lg hover:shadow-pink-400/50'
                     } font-coiny mt-12 w-full px-6 py-3 rounded-md text-2xl text-white  mx-4 tracking-wide uppercase`}
                     disabled={paused || isMinting}
-                    onClick={isPreSale ? presaleMintHandler : publicMintHandler}
+                    // onClick={isPreSale ? presaleMintHandler : publicMintHandler}
                   >
                     {isMinting ? 'Minting...' : 'Mint'}
                   </button>
